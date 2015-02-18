@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+
+    <!--
+    ============================================================================
+    = PROJECT
+    ============================================================================
+    -->
+    <groupId>fr.palo.it.devoxx2015</groupId>
+    <artifactId>devoxx2015</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>${project.artifactId}</name>
+
+
+
+    <!--
+    ============================================================================
+    = PROPERTIES
+    ============================================================================
+    -->
+    <properties>
+        <jdk.version>1.8</jdk.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <jboss-javaee-7.version>1.0.0.Final</jboss-javaee-7.version>
+        <slf4j.version>1.6.1</slf4j.version>
+        <logback.version>1.1.2</logback.version>
+        <javax.servlet-api.version>3.0.1</javax.servlet-api.version>
+        <java.javac.bin.path>${env.FORGE_JDK_8_HOME}/bin/javac</java.javac.bin.path>
+    </properties>
+    
+    
+
+    <!--
+    ============================================================================
+    = MODULES
+    ============================================================================
+    -->
+    <modules>
+        <module>devoxx2015-front</module>
+        <module>devoxx2015-back</module>
+    </modules>
+    
+    <!--
+    ============================================================================
+    = DEVELOPERS
+    ============================================================================
+    -->
+    <developers>
+
+    </developers>
+    
+
+ 
+  <!--
+    ============================================================================
+    = DEPENDENCY MANAGEMENT
+    ============================================================================
+  -->
+    <dependencyManagement>
+        <dependencies>
+            
+            <dependency>
+                <groupId>fr.palo.it.devoxx2015</groupId>
+                <artifactId>devoxx2015-front</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        
+            <dependency>
+                <groupId>fr.palo.it.devoxx2015</groupId>
+                <artifactId>devoxx2015-back</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.jboss.spec</groupId>
+                <artifactId>jboss-javaee-7.0</artifactId>
+                <version>${jboss-javaee-7.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${javax.servlet-api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-ext</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+        </dependencies>
+
+    </dependencyManagement>
+    
+    
+
+    
+    <!--
+    ============================================================================
+    = BUILD
+    ============================================================================
+    -->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.2</version>
+
+                    <configuration>
+                        <verbose>true</verbose>
+                        <fork>true</fork>
+                        <source>${jdk.version}</source>
+                        <target>${jdk.version}</target>
+                        <compilerVersion>${jdk.version}</compilerVersion>
+                        <executable>${java.javac.bin.path}</executable>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>enforce-java-8-env-property</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <phase>validate</phase>
+                        <configuration>
+                            <rules>
+                                <requireProperty>
+                                    <property>env.FORGE_JDK_8_HOME</property>
+                                    <message>Your FORGE_JDK_8_HOME environment property isn't set. Please check your
+                                        system configuration</message>
+                                </requireProperty>
+                            </rules>
+                            <fail>true</fail>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+    

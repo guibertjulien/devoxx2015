@@ -22,7 +22,7 @@
     ============================================================================
     -->
     <artifactId>devoxx2015-front</artifactId>
-    <packaging>pom</packaging>
+    <packaging>war</packaging>
 
 
 </project>

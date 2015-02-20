@@ -22,7 +22,7 @@
     ============================================================================
     -->
     <artifactId>devoxx2015-assembly</artifactId>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
 
 

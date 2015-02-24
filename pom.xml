@@ -40,9 +40,14 @@
     -->
     <properties>
         <forge.project.scm.type.git />
+
+        <forge.project.scm.type.git />
         <forge.project.url>https://github.com/Palo-IT/devoxx2015</forge.project.url>
         <forge.project.scm.connection>git@github.com:Palo-IT/devoxx2015.git</forge.project.scm.connection>
-        
+        <forge.project.scm.developerConnection>${forge.project.scm.connection}</forge.project.scm.developerConnection>
+        <forge.project.scm.url>${forge.project.url}</forge.project.scm.url>
+        <forge.project.scm.tag>HEAD</forge.project.scm.tag>
+
         
         <!-- versions -->
         <jboss-javaee-7.version>1.0.0.Final</jboss-javaee-7.version>

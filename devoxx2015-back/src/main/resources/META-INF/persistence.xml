@@ -4,12 +4,13 @@
         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
         
 <persistence-unit name="fablab-mongo-ogm">
-    <class>com.palo.fablab.persistence.Player</class>
     <properties>
+<!--    <property name="hibernate.ogm.datastore.provider" value="org.hibernate.ogm.datastore.mongodb.impl.MongoDBDatastoreProvider"/> -->
         <property name="hibernate.ogm.mongodb.database" value="fablabdb"/>
         <property name="hibernate.ogm.mongodb.host" value="localhost"/>
         <property name="hibernate.search.default.directory_provider" value="filesystem"/>
         <property name="hibernate.search.default.indexBase" value="/tmp/.hibernate_ogm_demo_luceneindexes"/>
+        
     </properties>
 </persistence-unit>
 

@@ -37,11 +37,11 @@ public class PlayerServiceImpl {
 	@GET
 	@Path("/properties")
 	@Produces(MediaType.APPLICATION_JSON)
-	public PlayerDTO test(PlayerDTO PlayerDTO) {
+	public Response test() {
 		LOGGER.info("Hellooooooo");
 		Player persistedPlayer=new Player();
 		persistedPlayer.setId("1");
-		return copyToPlayerDTO(persistedPlayer);
+		return Response.ok(copyToPlayerDTO(persistedPlayer)).build();
 	}
 	
 	@POST

@@ -9,7 +9,7 @@
     ============================================================================
     -->
     <parent>
-        <groupId>fr.palo.it.devoxx2015</groupId>
+        <groupId>com.palo.it.devoxx2015</groupId>
         <artifactId>devoxx2015</artifactId>
         <version>0.1-SNAPSHOT</version>
         <relativePath>..</relativePath>

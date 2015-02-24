@@ -3,7 +3,6 @@ package com.palo.it.devoxx2015.back.service;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.ws.rs.Consumes;
@@ -18,7 +17,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.apache.commons.beanutils.BeanUtils;
-import org.jboss.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.palo.it.devoxx2015.back.domain.PlayerDTO;
 import com.palo.it.devoxx2015.back.persistence.Player;
@@ -31,14 +31,14 @@ public class PlayerServiceImpl {
 	@PersistenceContext(unitName = "fablab-mongo-ogm")
 	private EntityManager em;
 	
-	@Inject
-	private Logger log;
+	private static final Logger LOGGER = LoggerFactory.getLogger(PlayerServiceImpl.class);
 
 
 	@GET
+	@Path("/properties")
 	@Produces(MediaType.APPLICATION_JSON)
 	public PlayerDTO test(PlayerDTO PlayerDTO) {
-		log.info("Hellooooooo");
+		LOGGER.info("Hellooooooo");
 		Player persistedPlayer=new Player();
 		persistedPlayer.setId("1");
 		return copyToPlayerDTO(persistedPlayer);
@@ -93,9 +93,9 @@ public class PlayerServiceImpl {
 			try {
 				BeanUtils.copyProperties(copiedPlayer, playerDTO);
 			} catch (IllegalAccessException e) {
-				log.error(e);
+				LOGGER.error("exception: ", e);
 			} catch (InvocationTargetException e) {
-				log.error(e);
+				LOGGER.error("exception: ", e);
 			}
 			return copiedPlayer;
 		}
@@ -109,9 +109,9 @@ public class PlayerServiceImpl {
 			try {
 				BeanUtils.copyProperties(copiedPlayerDTO, player);
 			} catch (IllegalAccessException e) {
-				log.error(e);
+				LOGGER.error("exception: ", e);
 			} catch (InvocationTargetException e) {
-				log.error(e);
+				LOGGER.error("exception: ", e);
 			}
 			return copiedPlayerDTO;
 		}

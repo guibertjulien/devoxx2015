@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0"
 		metadata-complete="true">
 
-  <display-name>FabLab Devoxx 2015 Front</display-name>
+  <display-name>Devoxx 2015 back</display-name>
   
  	
   <servlet>
@@ -28,7 +28,7 @@
 
     <context-param>
         <param-name>resteasy.providers</param-name>
-        <param-value>fr.palo.it.devoxx2015.back.exception.ExceptionHandler</param-value>
+        <param-value>com.palo.it.devoxx2015.back.exception.ExceptionHandler</param-value>
     </context-param>
     
     

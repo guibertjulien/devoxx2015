@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
 
@@ -55,7 +56,9 @@
         <javax.servlet-api.version>3.0.1</javax.servlet-api.version>
         <junit.version>4.11</junit.version>
         <org.hibernate.version>4.1.1.Final</org.hibernate.version>
+        <org.hibernat-validator.version>5.1.1.Final</org.hibernat-validator.version>
         <org.commons.lang.version>3.3.2</org.commons.lang.version>
+        <jackson-annotations.version>2.3.2</jackson-annotations.version>
     </properties>
     
     
@@ -69,8 +72,8 @@
         <url>${forge.project.scm.url}</url>
         <connection>${forge.project.scm.type}//${forge.project.scm.connection}</connection>
         <developerConnection>${forge.project.scm.type}//${forge.project.scm.developerConnection}</developerConnection>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
     
 
     <!--
@@ -147,6 +150,19 @@
                 <groupId>org.hibernate.ogm</groupId>
                 <artifactId>hibernate-ogm-mongodb</artifactId>
                 <version>${org.hibernate.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${org.hibernat-validator.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson-annotations.version}</version>
             </dependency>
 
 

@@ -1,4 +1,4 @@
-package com.palo.it.devoxx2015.back.exception;
+package com.palo.it.devoxx2015.back.exception.rest;
 
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
@@ -25,6 +25,7 @@ public class ExceptionHandler implements ExceptionMapper<Exception> {
     public Response toResponse(Exception _exception) {
 
         Response response = null;
+        LOGGER.error(_exception.getMessage(), _exception);
 
         if (_exception instanceof WebApplicationException) {
             response = ((WebApplicationException) _exception).getResponse();

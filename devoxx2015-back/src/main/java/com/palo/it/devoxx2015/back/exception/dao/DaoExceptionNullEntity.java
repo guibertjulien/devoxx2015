@@ -15,81 +15,78 @@
  *   limitations under the License.
  *
  */
-package com.palo.it.devoxx2015.back.exception;
-
-import java.text.MessageFormat;
+package com.palo.it.devoxx2015.back.exception.dao;
 
 /**
- * TechnicalException.
+ * DaoExceptionNullEntity.
  *
  * @author pguillerm
- * @since 24 févr. 2015
+ * @since 13 févr. 2015
  */
-public class TechnicalException extends Exception {
+public class DaoExceptionNullEntity extends DaoException {
 
     // =========================================================================
     // ATTRIBUTES
     // =========================================================================
     /** The Constant serialVersionUID. */
-    private static final long serialVersionUID = 3589003823108673251L;
+    private static final long serialVersionUID = -1230131779703379767L;
 
     // =========================================================================
     // CONSTRUCTORS
     // =========================================================================
     /**
-     * Instantiates a new technical exception.
+     * Instantiates a new dao exception null entity.
      */
-    public TechnicalException() {
+    public DaoExceptionNullEntity() {
         super();
     }
 
     /**
-     * Instantiates a new technical exception.
+     * Instantiates a new dao exception null entity.
+     *
+     * @param message the message
+     * @param values the values
+     */
+    public DaoExceptionNullEntity(final String message, final Object... values) {
+        super(message, values);
+    }
+
+    /**
+     * Instantiates a new dao exception null entity.
+     *
+     * @param message the message
+     * @param cause the cause
+     * @param values the values
+     */
+    public DaoExceptionNullEntity(final String message, final Throwable cause, final Object... values) {
+        super(message, cause, values);
+    }
+
+    /**
+     * Instantiates a new dao exception null entity.
      *
      * @param message the message
      * @param cause the cause
      */
-    public TechnicalException(String message, Throwable cause) {
+    public DaoExceptionNullEntity(final String message, final Throwable cause) {
         super(message, cause);
     }
 
     /**
-     * Instantiates a new technical exception.
+     * Instantiates a new dao exception null entity.
      *
      * @param message the message
      */
-    public TechnicalException(String message) {
+    public DaoExceptionNullEntity(final String message) {
         super(message);
     }
 
     /**
-     * Instantiates a new technical exception.
+     * Instantiates a new dao exception null entity.
      *
      * @param cause the cause
      */
-    public TechnicalException(Throwable cause) {
+    public DaoExceptionNullEntity(final Throwable cause) {
         super(cause);
     }
-
-    /**
-     * Instantiates a new technical exception.
-     *
-     * @param message the message
-     * @param values the values
-     */
-    public TechnicalException(String message, Object... values) {
-        super(MessageFormat.format(message, values));
-    }
-
-    /**
-     * Instantiates a new technical exception.
-     *
-     * @param message the message
-     * @param cause the cause
-     * @param values the values
-     */
-    public TechnicalException(String message, Throwable cause, Object... values) {
-        super(MessageFormat.format(message, values), cause);
-    }
-
 }

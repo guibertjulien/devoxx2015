@@ -5,10 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
@@ -25,28 +21,22 @@ public class Player implements Identifiable<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    @XmlElement(name = "uid")
     private Long              uid;
 
     @NotBlank
     @NotNull
-    @XmlElement(name = "firstName")
     private String            firstName;
 
     @NotBlank
     @NotNull
-    @XmlElement(name = "lastName")
     private String            lastName;
 
     @Email
     @NotNull
-    @XmlElement(name = "email")
     private String            email;
 
-    @XmlElement(name = "company")
     private String            company;
 
-    @XmlElement(name = "job")
     private String            job;
 
     // =========================================================================
